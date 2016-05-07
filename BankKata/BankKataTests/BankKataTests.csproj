@@ -77,8 +77,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Features\PrintFullBankStatement.cs" />
-    <Compile Include="Models\AccountShould.cs" />
+    <Compile Include="UnitTests\AccountShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests\TransactionRepositoryShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

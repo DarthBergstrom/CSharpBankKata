@@ -4,6 +4,7 @@ using NUnit.Framework;
 using Moq;
 using BankCore.Models;
 using BankCore.Repositories;
+using BankCore.Services;
 
 namespace BankKataTests
 {
@@ -14,8 +15,9 @@ namespace BankKataTests
         public void Print_Statement_Containing_All_Transactions()
         {
             var mockConsole = new Mock<TestConsole>();
-            var transactionRepository = new Mock<TransactionRepository>();
-            var account = new Account(transactionRepository.Object);
+            var transactionRepository = new TransactionRepository();
+            var statementPrinter = new StatementPrinter();
+            var account = new Account(transactionRepository, statementPrinter);
 
             account.Deposit(1000);
             account.Withdraw(500);
