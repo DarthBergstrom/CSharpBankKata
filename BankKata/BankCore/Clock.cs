@@ -6,7 +6,12 @@ namespace BankCore
     {
         public virtual string TodayAsString()
         {
-            throw new NotImplementedException();
+            return Today();
+        }
+
+        protected virtual string Today()
+        {
+            return DateTime.Today.ToString("dd/MM/yyyy");
         }
     }
 }
