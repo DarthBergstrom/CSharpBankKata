@@ -14,7 +14,7 @@ namespace BankKataTests.UnitTests
         private Mock<Clock> mockClock;
         private const string TODAY = "12/05/2015";
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Init()
         {
             mockClock = new Mock<Clock>();

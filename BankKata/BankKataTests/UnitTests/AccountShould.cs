@@ -16,11 +16,13 @@ namespace BankKataTests.UnitTests
         private Mock<TransactionRepository> mockTransactionRepository;
         private Mock<StatementPrinter> mockStatementPrinter;
         private Account account;
+        private Mock<Clock> mockClock;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void init()
         {
-            mockTransactionRepository = new Mock<TransactionRepository>();
+            mockClock = new Mock<Clock>();
+            mockTransactionRepository = new Mock<TransactionRepository>(mockClock.Object);
             mockStatementPrinter = new Mock<StatementPrinter>();
             account = new Account(mockTransactionRepository.Object, mockStatementPrinter.Object);
         }
