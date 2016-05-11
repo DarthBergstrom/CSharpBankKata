@@ -2,25 +2,35 @@
 {
     public class Transaction
     {
-        private int amount;
-        private string date;
+        private readonly int _amount;
+        private readonly string _date;
 
         public Transaction(string date, int amount)
         {
-            this.date = date;
-            this.amount = amount;
+            _date = date;
+            _amount = amount;
+        }
+
+        public string Date
+        {
+            get { return _date; }
+        }
+
+        public int Amount
+        {
+            get { return _amount; }
         }
 
         public override bool Equals(object obj)
         {
             if (this == obj)
                 return true;
-            if (obj == null || obj.GetType() != this.GetType())
+            if (obj == null || obj.GetType() != GetType())
                 return false;
 
             Transaction that = (Transaction)obj;
 
-            if (this.date != that.date || this.amount != that.amount)
+            if (_date != that._date || _amount != that._amount)
                 return false;
 
             return true;

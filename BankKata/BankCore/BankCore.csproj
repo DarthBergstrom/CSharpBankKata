@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clock.cs" />
+    <Compile Include="Models\Clock.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\TestConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

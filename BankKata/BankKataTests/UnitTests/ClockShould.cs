@@ -1,6 +1,7 @@
 ﻿using BankCore;
 using NUnit.Framework;
 using System;
+using BankCore.Models;
 
 namespace BankKataTests.UnitTests
 {
@@ -10,14 +11,14 @@ namespace BankKataTests.UnitTests
         private const string TODAY = "07/04/2016";
 
         [Test]
-        public void Return_todays_date_in_dd_MM_yyyy_format()
+        public void Return_Todays_Date_In_Dd_Mm_Yyyy_Format()
         {
-            var clock = new testableClock();
+            var clock = new TestableClock();
 
             Assert.That(clock.TodayAsString, Is.EqualTo(TODAY));
         }
 
-        private class testableClock : Clock
+        private class TestableClock : Clock
         {
             protected override string Today()
             {
