@@ -1,9 +1,7 @@
-﻿using System;
-using NUnit.Framework;
-using BankCore.Repositories;
+﻿using NUnit.Framework;
 using BankCore.Models;
 using Moq;
-using BankCore;
+using BankCore.Repositories;
 
 namespace BankKataTests.UnitTests
 {

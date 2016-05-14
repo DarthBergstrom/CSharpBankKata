@@ -1,7 +1,5 @@
 ﻿using BankCore.Models;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace BankCore.Repositories
 {

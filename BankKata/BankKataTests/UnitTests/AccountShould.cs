@@ -1,10 +1,9 @@
 ﻿using NUnit.Framework;
 using Moq;
 using BankCore.Models;
-using BankCore.Repositories;
 using BankCore.Services;
 using System.Collections.Generic;
-using BankCore;
+using BankCore.Repositories;
 
 namespace BankKataTests.UnitTests
 {
@@ -32,7 +31,7 @@ namespace BankKataTests.UnitTests
         {
             _account.Deposit(100);
 
-            _mockTransactionRepository.Verify(self => self.AddDeposit(100));
+            _mockTransactionRepository.Verify(accountClassCalls => accountClassCalls.AddDeposit(100));
         }
 
         [Test]
@@ -40,7 +39,7 @@ namespace BankKataTests.UnitTests
         {
             _account.Withdraw(100);
 
-            _mockTransactionRepository.Verify(self => self.AddWithdrawal(100));
+            _mockTransactionRepository.Verify(accountClassCalls => accountClassCalls.AddWithdrawal(100));
         }
 
         [Test]
@@ -53,7 +52,7 @@ namespace BankKataTests.UnitTests
 
             _account.PrintStatement();
 
-            _mockStatementPrinter.Verify(self => self.Print(emptyListOfTransactions));
+            _mockStatementPrinter.Verify(accountClassCalls => accountClassCalls.Print(emptyListOfTransactions));
         }
     }
 }
