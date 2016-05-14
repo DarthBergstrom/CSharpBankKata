@@ -8,10 +8,10 @@ namespace BankCore.Services
 {
     public class StatementPrinter
     {
-        private readonly TestConsole _console;
+        private readonly BaseConsole _console;
         private readonly List<string> _transactionStrings;
 
-        public StatementPrinter(TestConsole console)
+        public StatementPrinter(BaseConsole console)
         {
             _console = console;
             _transactionStrings = new List<String>();

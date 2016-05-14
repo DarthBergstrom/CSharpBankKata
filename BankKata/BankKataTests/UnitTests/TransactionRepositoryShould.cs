@@ -10,39 +10,39 @@ namespace BankKataTests.UnitTests
     [TestFixture]
     public class TransactionRepositoryShould
     {
-        private TransactionRepository transactionRepository;
-        private Mock<Clock> mockClock;
-        private const string TODAY = "12/05/2015";
+        private TransactionRepository _transactionRepository;
+        private Mock<Clock> _mockClock;
+        private const string Today = "12/05/2015";
 
         [SetUp]
         public void Init()
         {
-            mockClock = new Mock<Clock>();
-            transactionRepository = new TransactionRepository(mockClock.Object);
-            mockClock.Setup(self => self.TodayAsString()).Returns(() => TODAY);
+            _mockClock = new Mock<Clock>();
+            _transactionRepository = new TransactionRepository(_mockClock.Object);
+            _mockClock.Setup(self => self.TodayAsString()).Returns(() => Today);
         }
 
         [Test]
-        public void Create_and_store_a_Deposit_Transaction()
+        public void Create_And_Store_A_Deposit_Transaction()
         {
-            transactionRepository.AddDeposit(100);
-            var transactions = transactionRepository.AllTransactions();
+            _transactionRepository.AddDeposit(100);
+            var transactions = _transactionRepository.AllTransactions();
             
             Assert.That(transactions.Count, Is.EqualTo(1));
-            Assert.That(transactions[0], Is.EqualTo(transaction(TODAY, 100)));
+            Assert.That(transactions[0], Is.EqualTo(Transaction(Today, 100)));
         }
 
         [Test]
-        public void Create_and_store_a_Withdrawal_Transaction()
+        public void Create_And_Store_A_Withdrawal_Transaction()
         {
-            transactionRepository.AddWithdrawal(100);
-            var transactions = transactionRepository.AllTransactions();
+            _transactionRepository.AddWithdrawal(100);
+            var transactions = _transactionRepository.AllTransactions();
 
             Assert.That(transactions.Count, Is.EqualTo(1));
-            Assert.That(transactions[0], Is.EqualTo(transaction(TODAY, -100)));
+            Assert.That(transactions[0], Is.EqualTo(Transaction(Today, -100)));
         }
 
-        private Transaction transaction(string date, int amount)
+        private Transaction Transaction(string date, int amount)
         {
             return new Transaction(date, amount);
         }

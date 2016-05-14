@@ -15,13 +15,13 @@ namespace BankKataTests.UnitTests
         private Mock<StatementPrinter> _mockStatementPrinter;
         private Account _account;
         private Mock<Clock> _mockClock;
-        private Mock<TestConsole> _mockConsole;
+        private Mock<BaseConsole> _mockConsole;
 
         [SetUp]
         public void Init()
         {
             _mockClock = new Mock<Clock>();
-            _mockConsole = new Mock<TestConsole>();
+            _mockConsole = new Mock<BaseConsole>();
             _mockTransactionRepository = new Mock<TransactionRepository>(_mockClock.Object);
             _mockStatementPrinter = new Mock<StatementPrinter>(_mockConsole.Object);
             _account = new Account(_mockTransactionRepository.Object, _mockStatementPrinter.Object);
@@ -46,14 +46,14 @@ namespace BankKataTests.UnitTests
         [Test]
         public void Print_A_Statment()
         {
-            var transactions = new List<Transaction>();
+            var emptyListOfTransactions = new List<Transaction>();
             _mockTransactionRepository
                 .Setup(self => self.AllTransactions())
-                .Returns(()=>transactions);
+                .Returns(()=>emptyListOfTransactions);
 
             _account.PrintStatement();
 
-            _mockStatementPrinter.Verify(self => self.Print(transactions));
+            _mockStatementPrinter.Verify(self => self.Print(emptyListOfTransactions));
         }
     }
 }

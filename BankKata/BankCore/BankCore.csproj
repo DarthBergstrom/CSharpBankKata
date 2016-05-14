@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Models\Clock.cs" />
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\TestConsole.cs" />
+    <Compile Include="Models\BaseConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Services\StatementPrinter.cs" />

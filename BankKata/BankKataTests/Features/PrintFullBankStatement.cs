@@ -13,7 +13,7 @@ namespace BankKataTests.Features
         [Test]
         public void Print_Statement_Containing_All_Transactions()
         {
-            var mockConsole = new Mock<TestConsole>();
+            var mockConsole = new Mock<BaseConsole>();
             var mockClock = new Mock<Clock>();
             var transactionRepository = new TransactionRepository(mockClock.Object);
             var statementPrinter = new StatementPrinter(mockConsole.Object);

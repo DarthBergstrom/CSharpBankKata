@@ -27,7 +27,7 @@ namespace TestApplication
             Console.ReadLine();
         }
 
-        public class RealConsole : TestConsole
+        public class RealConsole : BaseConsole
         {
             public override void PrintLine(string text)
             {

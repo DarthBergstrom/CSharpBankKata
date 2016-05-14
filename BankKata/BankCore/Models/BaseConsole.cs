@@ -2,7 +2,7 @@
 
 namespace BankCore.Models
 {
-    public class TestConsole
+    public class BaseConsole
     {
         public virtual void PrintLine(string text)
         {
