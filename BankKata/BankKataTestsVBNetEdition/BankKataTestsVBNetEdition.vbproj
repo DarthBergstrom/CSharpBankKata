@@ -106,6 +106,7 @@
     <Import Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\PrintFullBankStatement.vb" />
     <Compile Include="UnitTests\AccountShould.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -123,6 +124,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="UnitTests\TransactionRepositoryShould.vb" />
+    <Compile Include="UnitTests\ClockShould.vb" />
+    <Compile Include="UnitTests\StatementPrinterShould.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -144,9 +147,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BankCoreVBNetEdition\BankCoreVBNetEdition.vbproj">
       <Project>{237b17c6-a370-442f-ad35-e3afd384399b}</Project>

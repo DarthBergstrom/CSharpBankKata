@@ -21,7 +21,7 @@
 
         Dim runningBalance As Integer
 
-        For Each transaction As Transaction In initialTransactions
+        For Each transaction As Transaction In initialTransactions.OrderBy(Function(T) Convert.ToDateTime(T.Date))
             runningBalance += transaction.Amount
             _transactionStrings.Add(transaction.Date + " | " + transaction.Amount.ToString("F2") + " | " + runningBalance.ToString("F2"))
         Next
